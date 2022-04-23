@@ -1,11 +1,11 @@
 package com.example.larningkotlin
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,18 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun createBirthdayCard(view: View) {
-        val name = nameInput.editableText.toString()
+    private fun loadMeme() {
+        // Instantiate the RequestQueue.
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://meme-api.herokuapp.com/gimme"
 
-        //An Intent is basically a message that is passed between components (such as Activities, Services, Broadcast Receivers, and Content Providers).
-        val intent = Intent(this, BirthdayGreeting::class.java)
+// Request a string response from the provided URL.
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                val url = response.getString("url")
+            },
+            {  })
 
-        //passing name from one activity to other
-        intent.putExtra(BirthdayGreeting.NAME_EXTRA, name)
-
-        //here this is context of current class and BirthdayGreeting::class.java is the activity we want to go
-
-        startActivity(intent)
+// Add the request to the RequestQueue.
+        queue.add(jsonObjectRequest)
     }
 
     fun shareMeme(view: View) {}
