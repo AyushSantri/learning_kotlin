@@ -26,4 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         startActivity(intent)
     }
+
+    fun shareMeme(view: View) {}
+    fun nextMeme(view: View) {}
 }

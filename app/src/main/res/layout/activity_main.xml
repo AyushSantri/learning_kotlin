@@ -6,39 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/helperMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/enter_the_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/nameInput"
-        android:layout_width="207dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/ayush_santri"
-        android:textAlignment="center"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helperMessage" />
+    <ImageView
+        android:id="@+id/memeImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/createBirthdayButton"
+        android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/create_birthday_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textAllCaps="false"
-        android:onClick="createBirthdayCard"
-        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+        android:text="@string/share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/memeImageView"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintRight_toRightOf="@+id/guideline2"
+        android:onClick="shareMeme"/>
 
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/memeImageView"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        android:onClick="nextMeme"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
