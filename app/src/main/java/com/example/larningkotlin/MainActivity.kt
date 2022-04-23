@@ -14,8 +14,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createBirthdayCard(view: View) {
+        val name = nameInput.editableText.toString()
+
         //An Intent is basically a message that is passed between components (such as Activities, Services, Broadcast Receivers, and Content Providers).
-        var intent = Intent(this, BirthdayGreeting::class.java)
+        val intent = Intent(this, BirthdayGreeting::class.java)
+
+        //passing name from one activity to other
+        intent.putExtra("name", name)
 
         //here this is context of current class and BirthdayGreeting::class.java is the activity we want to go
 
