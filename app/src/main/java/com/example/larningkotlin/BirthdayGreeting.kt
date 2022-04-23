@@ -20,6 +20,6 @@ class BirthdayGreeting : AppCompatActivity() {
         //getStringExtra is used because we passed string in this activity
         val name = intent.getStringExtra(NAME_EXTRA)
 
-        birthdayGreeting.text = "Happy Birthday $name"
+        birthdayGreeting.text = "Happy Birthday \n$name"
     }
 }
