@@ -1,5 +1,6 @@
 package com.example.larningkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,7 +14,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createBirthdayCard(view: View) {
-        var name = nameInput.editableText.toString()
-        Toast.makeText(this, "hey there $name", Toast.LENGTH_LONG).show()
+        //An Intent is basically a message that is passed between components (such as Activities, Services, Broadcast Receivers, and Content Providers).
+        var intent = Intent(this, BirthdayGreeting::class.java)
+
+        //here this is context of current class and BirthdayGreeting::class.java is the activity we want to go
+
+        startActivity(intent)
     }
 }
