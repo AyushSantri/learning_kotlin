@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, BirthdayGreeting::class.java)
 
         //passing name from one activity to other
-        intent.putExtra("name", name)
+        intent.putExtra("name", BirthdayGreeting.NAME_EXTRA)
 
         //here this is context of current class and BirthdayGreeting::class.java is the activity we want to go
 
