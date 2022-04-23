@@ -2,6 +2,8 @@ package com.example.larningkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import kotlinx.android.synthetic.main.activity_birthday_greeting.*
 
 class BirthdayGreeting : AppCompatActivity() {
 
@@ -17,5 +19,7 @@ class BirthdayGreeting : AppCompatActivity() {
         //captured the name from main.kt
         //getStringExtra is used because we passed string in this activity
         val name = intent.getStringExtra(NAME_EXTRA)
+
+        birthdayGreeting.text = "Happy Birthday $name"
     }
 }
