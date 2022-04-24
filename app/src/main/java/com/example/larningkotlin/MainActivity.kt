@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
             { response ->
-                val url = response.getString("url")
-                Glide.with(this).load(url).into(memeImageView)
+                val URL = response.getString("url")
+                Glide.with(this).load(URL).into(memeImageView)
             },
             {  })
 
