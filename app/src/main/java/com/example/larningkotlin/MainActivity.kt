@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadMeme() {
-        progressBar.visibility = View.VISIBLE
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
         val url = "https://meme-api.herokuapp.com/gimme"
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
             { response ->
+                progressBar.visibility = View.VISIBLE
                 val URL = response.getString("url")
                 Glide.with(this).load(URL).listener(object : RequestListener<Drawable>{
                     override fun onLoadFailed(
