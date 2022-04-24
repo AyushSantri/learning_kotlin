@@ -1,5 +1,6 @@
 package com.example.larningkotlin
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.opengl.Visibility
 import android.os.Bundle
@@ -16,6 +17,8 @@ import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    var currImageURL : String?  = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,8 +35,8 @@ class MainActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
             { response ->
                 progressBar.visibility = View.VISIBLE
-                val URL = response.getString("url")
-                Glide.with(this).load(URL).listener(object : RequestListener<Drawable>{
+                currImageURL = response.getString("url")
+                Glide.with(this).load(currImageURL).listener(object : RequestListener<Drawable>{
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
@@ -62,7 +65,21 @@ class MainActivity : AppCompatActivity() {
         queue.add(jsonObjectRequest)
     }
 
-    fun shareMeme(view: View) {}
+    fun shareMeme(view: View) {
+        //declared the action of intent
+        val intent = Intent(Intent.ACTION_SEND)
+
+        //declared the type of action
+        intent.type = "text/plain"
+
+//        provided the message to send
+        intent.putExtra(Intent.EXTRA_TEXT, "HEY CHECKOUT $currImageURL")
+
+        //created the chooser of apps
+        val chooser = Intent.createChooser(intent, "share this via...")
+        startActivity(chooser)
+    }
+
     fun nextMeme(view: View) {
         loadMeme()
     }
