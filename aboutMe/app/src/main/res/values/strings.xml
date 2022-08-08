@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="ayush_santri">Ayush Santri</string>
+    <string name="star_image">Star Image</string>
+    <string name="bio" >Now it’s your turn to complete this exercise.\n\nAdd a ScrollView with a TextView showing information about yourself to the layout.\n\nStyle the TextView with NameStyle, and add additional styling to separate the scrollable text from the edges of the screen.\n\nAdd some spacing between the lines using the lineSpacingMultiplier property to the TextView.\n\n</string>
+    <string name="name">Name</string>
+    <string name="what_is_your_nickname" />
+    <string name="what_is_your_nick_name">What is your nick name</string>
+    <string name="press">Press</string>
+</resources>
