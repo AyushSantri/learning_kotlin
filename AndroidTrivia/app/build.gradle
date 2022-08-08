@@ -23,7 +23,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 32
 
     buildFeatures {
         viewBinding = true
@@ -32,7 +32,7 @@ android {
     defaultConfig {
         applicationId 'com.example.android.navigation'
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 32
         vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
