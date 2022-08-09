@@ -15,6 +15,8 @@ class TitleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding: FragmentTitle2Binding = DataBindingUtil.inflate(inflater, R.layout.fragment_title2, container, false)
+
+        binding.playButton.setOnClickListener {  }
         return  binding.root
     }
 }
